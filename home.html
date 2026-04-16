@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Lumia Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2 class="text-gradient">Lumia</h2>
+        </div>
+        <ul class="nav-menu">
+            <li class="active"><a href="home.html">Dashboard</a></li>
+            <li><a href="books.html">List of Books</a></li>
+            <li><a href="manage-books.html">Manage Books</a></li>
+            <li><a href="index.html" onclick="logout()">Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <header class="top-header">
+            <div>
+                <h1>Welcome back, Admin</h1>
+                <p style="color: var(--text-muted);">Here's what's happening at the library today.</p>
+            </div>
+            <div>
+                <img src="https://ui-avatars.com/api/?name=Admin&background=4F46E5&color=fff" alt="Admin" style="border-radius: 50%; width: 48px; border: 2px solid var(--primary-light);">
+            </div>
+        </header>
+
+        <section class="content-area">
+            <!-- Dashboard Stats -->
+            <div class="stats-grid">
+                <div class="glass-panel stat-card">
+                    <span class="stat-title">Total Books</span>
+                    <span class="stat-value text-gradient" id="totalBooksStat">0</span>
+                </div>
+                <div class="glass-panel stat-card">
+                    <span class="stat-title">Active Members</span>
+                    <span class="stat-value text-gradient">2,451</span>
+                </div>
+                <div class="glass-panel stat-card">
+                    <span class="stat-title">Overdue Returns</span>
+                    <span class="stat-value text-gradient" style="color: var(--danger) !important; -webkit-text-fill-color: var(--danger);">12</span>
+                </div>
+            </div>
+
+            <div class="glass-panel" style="padding: 2rem;">
+                <h2>Recent Activity</h2>
+                <ul style="list-style: none; margin-top: 1rem; color: var(--text-muted); display:flex; flex-direction: column; gap: 0.8rem;">
+                    <li>• John D. borrowed "The Great Gatsby"</li>
+                    <li>• "Clean Code" received 5 new copies</li>
+                    <li>• Sarah M. returned "Design Patterns"</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

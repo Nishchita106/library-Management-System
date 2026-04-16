@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Books - Lumia Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2 class="text-gradient">Lumia</h2>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="home.html">Dashboard</a></li>
+            <li><a href="books.html">List of Books</a></li>
+            <li class="active"><a href="manage-books.html">Manage Books</a></li>
+            <li><a href="index.html" onclick="logout()">Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <header class="top-header">
+            <div>
+                <h1>Manage Catalog</h1>
+                <p style="color: var(--text-muted);">Add, modify, or remove books from the library.</p>
+            </div>
+        </header>
+
+        <section class="content-area">
+            <div class="manage-grid">
+                
+                <!-- Add Book Form -->
+                <div>
+                    <div class="glass-panel" style="padding: 2rem;">
+                        <h2 style="margin-bottom: 1.5rem;">Add New Book</h2>
+                        <form id="addBookForm">
+                            <div class="form-group">
+                                <label>Book Title</label>
+                                <input type="text" id="addTitle" class="form-control" required placeholder="e.g. The Hobbit">
+                            </div>
+                            <div class="form-group">
+                                <label>Author Name</label>
+                                <input type="text" id="addAuthor" class="form-control" required placeholder="e.g. J.R.R. Tolkien">
+                            </div>
+                            <div class="form-group">
+                                <label>Quantity Available</label>
+                                <input type="number" id="addQty" class="form-control" required min="1" value="1">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Catalog</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Books Table -->
+                <div>
+                    <div class="glass-panel" style="padding: 2rem;">
+                        <h2 style="margin-bottom: 1.5rem;">Inventory</h2>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Qty</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inventoryTbody">
+                                    <!-- Dynamic rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderInventoryTable();
+            document.getElementById('addBookForm').addEventListener('submit', handleAddBook);
+        });
+    </script>
+</body>
+</html>

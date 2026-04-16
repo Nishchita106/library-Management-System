@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Books - Lumia Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2 class="text-gradient">Lumia</h2>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="home.html">Dashboard</a></li>
+            <li class="active"><a href="books.html">List of Books</a></li>
+            <li><a href="manage-books.html">Manage Books</a></li>
+            <li><a href="index.html" onclick="logout()">Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <header class="top-header">
+            <div>
+                <h1>Library Collection</h1>
+                <p style="color: var(--text-muted);">Browse our extensive catalog of books.</p>
+            </div>
+        </header>
+
+        <section class="content-area">
+            <div class="books-toolbar">
+                <input type="text" id="searchInput" class="form-control search-input" placeholder="Search by title or author...">
+            </div>
+
+            <div class="books-grid" id="booksGrid">
+                <!-- Books will be dynamically inserted here -->
+            </div>
+            
+            <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: var(--text-muted);">
+                <h3>No books found matching your search.</h3>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Specific init for books page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBooksList();
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                renderBooksList(e.target.value);
+            });
+        });
+    </script>
+</body>
+</html>
